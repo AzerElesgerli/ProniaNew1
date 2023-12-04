@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Documents\\ORM-SQL\\ProniaNew\\ProniaNew.csproj": {}
+    "C:\\Users\\user\\Desktop\\ProniaNew1\\ProniaNew\\ProniaNew.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Documents\\ORM-SQL\\ProniaNew\\ProniaNew.csproj": {
+    "C:\\Users\\user\\Desktop\\ProniaNew1\\ProniaNew\\ProniaNew.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Documents\\ORM-SQL\\ProniaNew\\ProniaNew.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\ProniaNew1\\ProniaNew\\ProniaNew.csproj",
         "projectName": "ProniaNew",
-        "projectPath": "C:\\Users\\user\\Documents\\ORM-SQL\\ProniaNew\\ProniaNew.csproj",
+        "projectPath": "C:\\Users\\user\\Desktop\\ProniaNew1\\ProniaNew\\ProniaNew.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Documents\\ORM-SQL\\ProniaNew\\obj\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\ProniaNew1\\ProniaNew\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -53,10 +53,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.14, )"
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[6.0.16, )"
             }
           },
           "imports": [

@@ -3,13 +3,12 @@ using ProniaNew.Models;
 
 namespace ProniaNew.DAL
 {
-	public class AppDbContext:DbContext
-	{
-		public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-		{
+    public class AppDbContext : DbContext
+    {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
 
-		}
-
+        }
         public DbSet<Slide> Slides { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -22,4 +21,4 @@ namespace ProniaNew.DAL
         public DbSet<ProductSize> ProductSizes { get; set; }
         public DbSet<Setting> Settings { get; set; }
     }
-}
+    }

@@ -27,18 +27,10 @@ namespace ProniaNew.Controllers
 
 			return View(product);
 		}
-		DetailVM detailVm =new DetailVM
-		{ 
-             Product = product,
-                RelatedProducts = await _context.Products
-			.Where(p=>p.CategoryId==product.CategoryId$$p.Id!=Product.id)
-			.Take(12)
-			.toListAsync():
-    };
-         
-    }
+		
 
 
 
 
+}
 }

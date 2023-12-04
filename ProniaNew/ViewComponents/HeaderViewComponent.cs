@@ -12,9 +12,10 @@ namespace ProniaNew.ViewComponents
             _context = context;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync()
-        {
-            Dictionary<string, string> settings = await _context.Settings.ToDictionaryAsync(d => d.Key, d => d.Value);
-            return View(settings);
-        }
+        // public async Task<IViewComponentResult> InvokeAsync()
+        // {
+        //     Dictionary<string, string> settings = await _context.Settings.ToDictionaryAsync(d => d.Key, d => d.Value);
+        //     return View(settings);
+        // }
+    }
 }
