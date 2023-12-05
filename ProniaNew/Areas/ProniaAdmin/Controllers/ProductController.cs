@@ -110,8 +110,6 @@ namespace ProniaNew.Areas.ProniaAdmin.Controllers
                 SKU = product.SKU,
                 CategoryId = product.CategoryId,
                 TagIds=product.ProductTags.Select(pt=>pt.TagId).ToList(),
-                Categories =await _context.Categories.ToListAsync(),
-                Tags =await _context.Tags.ToListAsync()
             };
 
 
@@ -121,20 +119,14 @@ namespace ProniaNew.Areas.ProniaAdmin.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(int id, UpdateProductVM productVM)
         {
-            if (!ModelState.IsValid)
-            {
-                productVM.Categories = await _context.Categories.ToListAsync();
-                productVM.Tags = await _context.Tags.ToListAsync();
-                return View(productVM);
-            }
+            
             Product existed = await _context.Products.Include(p=>p.ProductTags).FirstOrDefaultAsync(p => p.Id == id);
             if (existed is null) return NotFound();
 
             bool result = await _context.Categories.AnyAsync(c => c.Id == productVM.CategoryId);
             if (!result)
             {
-                productVM.Categories = await _context.Categories.ToListAsync();
-                productVM.Tags = await _context.Tags.ToListAsync();
+              
                 ModelState.AddModelError("CategoryId", "Bele bir category movcud deyil");
                 return View(productVM);
             }

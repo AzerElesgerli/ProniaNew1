@@ -60,9 +60,9 @@ namespace ProniaNew.Areas.ProniaAdmin.Controllers
 
             Slide slide = new Slide
             {
-                Image = fileName,
+                ImageUrl = fileName,
                 Title = slideVM.Title,
-                SubTitle = slideVM.SubTitle,
+                Subtitle = slideVM.SubTitle,
                 Description = slideVM.Description,
                 Order = slideVM.Order,
 
@@ -83,9 +83,9 @@ namespace ProniaNew.Areas.ProniaAdmin.Controllers
             UpdateSlideVM slideVM = new UpdateSlideVM
             {
                 Description = existed.Description,
-                SubTitle = existed.SubTitle,
+                SubTitle = existed.Subtitle,
                 Order = existed.Order,
-                Image = existed.Image,
+                Image = existed.ImageUrl,
                 Title = existed.Title
             };
 
@@ -118,13 +118,13 @@ namespace ProniaNew.Areas.ProniaAdmin.Controllers
                     return View(slideVM);
                 }
                 string fileName = await slideVM.Photo.CreateFileAsync(_env.WebRootPath, "assets", "images", "slider");
-                existed.Image.DeleteFile(_env.WebRootPath, "assets", "images", "slider");
+                existed.ImageUrl.DeleteFile(_env.WebRootPath, "assets", "images", "slider");
 
-                existed.Image = fileName;
+                existed.ImageUrl = fileName;
             }
 
             existed.Title=slideVM.Title;
-            existed.SubTitle = slideVM.SubTitle;
+            existed.Subtitle = slideVM.SubTitle;
             existed.Order = slideVM.Order;
             existed.Description = slideVM.Description;
             await _context.SaveChangesAsync();
@@ -141,7 +141,7 @@ namespace ProniaNew.Areas.ProniaAdmin.Controllers
 
             if (existed is null) return NotFound();
 
-            existed.Image.DeleteFile(_env.WebRootPath,"assets","images","slider");
+            existed.ImageUrl.DeleteFile(_env.WebRootPath,"assets","images","slider");
 
             _context.Slides.Remove(existed);
 
