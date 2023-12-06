@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProniaNew.Areas.ProniaAdmin.ViewModels;
 using ProniaNew.DAL;
@@ -16,6 +17,7 @@ namespace ProniaNew.Areas.ProniaAdmin.Controllers
         {
             _context = context;
         }
+        [Authorize("Admin,Moderator")]
         public async Task<IActionResult> Index()
         {
             List<Product> products = await _context.Products
@@ -26,8 +28,8 @@ namespace ProniaNew.Areas.ProniaAdmin.Controllers
                 .ToListAsync();
             return View(products);
         }
-
-        public async Task<IActionResult> Create()
+		[Authorize("Admin,Moderator")]
+		public async Task<IActionResult> Create()
         {
             ViewBag.Categories = await _context.Categories.ToListAsync();
             ViewBag.Tags = await _context.Tags.ToListAsync();
@@ -93,8 +95,8 @@ namespace ProniaNew.Areas.ProniaAdmin.Controllers
 
 
         }
-
-        public async Task<IActionResult> Update(int id)
+		[Authorize("Admin,Moderator")]
+		public async Task<IActionResult> Update(int id)
         {
             if (id <= 0) return BadRequest();
             
@@ -116,7 +118,8 @@ namespace ProniaNew.Areas.ProniaAdmin.Controllers
 
             return View(productVM);      
         }
-        [HttpPost]
+		[Authorize("Admin,Moderator")]
+		[HttpPost]
         public async Task<IActionResult> Update(int id, UpdateProductVM productVM)
         {
             
