@@ -34,6 +34,11 @@ namespace ProniaNew.Controllers
 
 			return View(home);
 		}
+
+		public IActionResult ErrorPage(string error)
+		{
+			return View(model: error);
+		}
 		public IActionResult About()
 		{
 			return View();
